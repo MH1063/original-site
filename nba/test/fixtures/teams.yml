@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  logo_img: MyString
+  conference: MyString
+  division: MyString
+  founded: MyString
+  base: MyString
+  championship: MyString
+  arena: MyString
+  arena_img: MyString
+  player1: MyString
+  player2: MyString
+  player3: MyString
+  player4: MyString
+  player5: MyString
+  player1_img: MyString
+  player2_img: MyString
+  player3_img: MyString
+  player4_img: MyString
+  player5_img: MyString
+
+two:
+  name: MyString
+  logo_img: MyString
+  conference: MyString
+  division: MyString
+  founded: MyString
+  base: MyString
+  championship: MyString
+  arena: MyString
+  arena_img: MyString
+  player1: MyString
+  player2: MyString
+  player3: MyString
+  player4: MyString
+  player5: MyString
+  player1_img: MyString
+  player2_img: MyString
+  player3_img: MyString
+  player4_img: MyString
+  player5_img: MyString
