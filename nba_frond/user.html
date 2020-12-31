@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>NBA</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="css/user.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="backimg">
+            <headder class="page-header wrapper">
+                <h1 class="logo">NBA</h1>
+                <nav>
+                    <ul class="main-nav">
+                        <li><a href="#"><i class="far fa-star"></i><span>0</span></a></li>
+                        <li><a href="#">follow<span>0</span></a></li>
+                        <li><a href="#">folloer<span>0</span></a></li>
+                        <li><a href="#">Edit</a></li>
+                        <li><a href="#">Top</a></li>
+                    </ul>
+                </nav>
+            </headder>
+            <div>
+                <div class="self">
+                    <h1>{{user.name}}</h1>
+                    <img
+                        v-bind:src="user.icon_img.url"
+                        width="150"
+                        height="150"
+                    >
+                    <p>{{user.self}}</p>
+                </div>
+            </div>
+        </div>
+        <div id="back-color">
+            <section class="left">
+                <p>favorite team</p>
+                <p>{{user.like_team}}</p>
+                <img
+                    v-bind:src="user.lile_team_img"
+                    width="150"
+                    height="150"
+                >
+            </section>
+            <section class="right">
+                <p>favorite player</p>
+                <p>{{user.like_player}}</p>
+                <img 
+                    v-bind="user.like_player_img"
+                    width="150"
+                    height="150"
+                >
+            </section>
+        </div>
+        <footer>
+            <div id="footer_navi">
+                <ul>
+                    <li><i class="fab fa-twitter fa-3x white"></i></li>
+                    <li><i class="fab fa-instagram fa-3x white"></i></li>
+                    <li><i class="fab fa-facebook fa-3x white"></i></li>
+                    <li><i class="fab fa-google fa-3x white"></i></li>
+                </ul>
+            </div>
+            <small class="white">&copy; 2020 NBA original saite</small>
+        </footer>
+    </div>
+
+    <!-- まずjQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!-- Popper.js, 次に Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="js/user.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+</body>
+
+</html>

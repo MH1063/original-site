@@ -1,0 +1,16 @@
+@charset "UTF";
+html{
+    font-size: 100%;
+}
+
+body{
+    font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+}
