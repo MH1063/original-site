@@ -1,4 +1,4 @@
-/*new Vue({
+new Vue({
   el: '#app',
   data() {
     return {
@@ -22,4 +22,4 @@
       window.location.href = 'https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/_static/original/nba_frond/toppage.html';
     }
   }
-});*/
+});

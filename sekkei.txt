@@ -1,11 +1,11 @@
 要件定義
 　バックサイド　Ruby on Railsで実装
-　　¥ユーザー登録
-　　¥ユーザー取り消し
-　　¥ユーザー取得
-　　¥ユーザー編集
-　　¥ログイン　
-　　¥ログアウト
+　　ユーザー登録
+　　ユーザー取り消し
+　　ユーザー取得
+　　ユーザー編集
+　　ログイン　
+　　ログアウト
 　　chat取得
 　　chat投稿
 　　chat取り消し
@@ -15,7 +15,7 @@
 　　いいね登録
 　　いいね取得
 　　いいね解除
-　　¥チーム取得
+　　チーム取得
 　　
 　フロンドサイド　
 　　googlemapAPI　最後に実装する
@@ -31,16 +31,16 @@
 　　Vue
 　　login.js ○
 　　sign.js　○
-　　team.js 
+　　team.js　○
 　　topapge_afterlogin.js　○ 出来てはいるが。team.idを使って改善できるはず。templateを使って、配列を回数ごとに条件分岐して、team.idを所得する。
-　　user.js ○
-　　user_edit.js △　画像のpostコートがあっているか分からない
-　　user_other.js　○　teamからのuser情報（特にuserid）を所得して、データを受け渡しをおこなわなければならない　botoomのしわけ
+　　user.js ○　○
+　　user_edit.js ○　
+　　user_other.js　○　teamからのuser情報（特にuserid）を所得して、データを受け渡しをおこなわなければならない
 　　
 　　デザイン
 　　login.htmlcss ○
 　　sign.htmlcss　○
-　　team.htmlcss　
+　　team.htmlcss　○
 　　toppage.htmlcss　○
 　　toppageafterlogin.htmlcss ○
 　　user.htmlcss ○できたら、画像の円形を縦横比をずらさないようにする。railsapiからデータをとって、それをVueで、cssのbackground-imgに加えないといけない

@@ -4,13 +4,16 @@ class ChatsController < ApplicationController
   
   def index
     @chats = Chat.all.order(team_id: :desc)
-    render json: @chats
+    
+    render :formats => :json
+    #render json: @chats
   end
 
   def create
     @chat = current_user.chats.build(chat_params)
     if @chat.save
-      render json: @chat, status: :created 
+      render :formats => :json
+      #render json: @chat, status: :created 
     else
       render json: @chat.errors, status: :unprocessable_entity
     end
