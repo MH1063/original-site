@@ -12,15 +12,17 @@
   
   <link rel="stylesheet" href="css/login.css">
   
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
     <div id="app">
         <div id = "home" class = "main-img">
-            <headder>
+            <header>
                 <h1 class = "wrapper">NBA</h1>
-            </headder>
+            </header>
             <div id = "main">
                 <div class = "card" style="width: 20rem;">
                     <div class = "card-header">
@@ -42,13 +44,13 @@
                             </div>
                             <div class ="form-gruop">
                                 <div class="text-right">
-                                    <botton class="btn btn-primary" type = "submit" v-on:click="login">Lognin</botton>
+                                    <button class="btn btn-primary" type = "button" v-on:click="login">Lognin</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                <a href = "#" class = "signin">If you dont't create user, please click this link</a>
+                <a href = "sign.html" class = "signin">If you dont't create user, please click this link</a>
             </div>
         </div>
         <footer>
@@ -71,7 +73,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <script src="main.js"></script>
+  <script src="js/login.js"></script>
 
   <!-- Font Awesome -->
   <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>

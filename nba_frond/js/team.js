@@ -17,7 +17,6 @@ new Vue({
     return {
       team: {},
       user: {},
-      users: [],
       chats: [],
       Content: '',
       Team_id: '',
@@ -25,9 +24,9 @@ new Vue({
       errored: false
     };
   },
-  components: {
+  /*components: {
     'favorite-botton': favoriteBotton,
-  },
+  },*/
   mounted() {
     if(sessionStorage.getItem("userId")){
       
@@ -41,21 +40,20 @@ new Vue({
       
       axios
         .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/teams/${value[1]}`)
-        .then(response => (this.team = response.data))
-        .catch(error => {
-          console.log(error);
-          this.errored = true;
-        });
-      axios
-        .get('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users')
-        .then(response => (this.users = response.data.user))
+        .then(response => {
+          console.log(response.data);
+          this.team = response.data;
+        })
         .catch(error => {
           console.log(error);
           this.errored = true;
         });
       axios
         .get('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/index')
-        .then(response => (this.chats = response.data))
+        .then(response => {
+          console.log(response.data);
+          this.chats = response.data.chats;
+        })
         .catch(error => {
           console.log(error);
           this.errored = true;
@@ -63,14 +61,19 @@ new Vue({
         
       axios
         .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users/${id}`)
-        .then(function (response){
+        .then(response => {
+          console.log(response.data.user);
           this.user = response.data.user;
+        })
+        .catch(error => {
+          console.log(error);
+          this.errored = true;
         });
     }else{
       window.location.href = 'https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/_static/original/nba_frond/toppage.html';
     }
   },
-  method: {
+  methods: {
     chatcreate: function(){
       axios
         .post('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/create', {

@@ -8,14 +8,15 @@ Rails.application.routes.draw do
   
     get 'chats/index'
     post 'chats/create'
-    delete 'chats/destroy/:id', to: 'chats#deltete'
+    delete 'chats/destroy/:id', to: 'chats#destroy'
     
     get 'teams/index'
     get 'teams/:id', to: 'teams#show'
+    put 'teams/:id', to: 'teams#update'
     
   
     post 'sessions/create'
-    delete 'sessions/:id', to: 'sessions#delete'
+    delete 'sessions/:id', to: 'sessions#destroy'
   
     resources :users do
       member do

@@ -11,15 +11,18 @@
   <link rel="stylesheet" href="css/main.css">
 
   <link rel="stylesheet" href="css/sign.css">
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
     <div id="app">
         <div id = "home" class = "main-img">
-            <headder>
+            <header>
                 <h1 class = "wrapper">NBA</h1>
-            </headder>
+            </header>
             <div id = "main">
                 <div class = "card" style="width: 20rem;">
                     <div class = "card-header">
@@ -53,7 +56,7 @@
                             </div>
                             <div class ="form-gruop">
                                 <div class="text-right">
-                                    <botton class="btn btn-primary" type = "submit" v-on:click="createNewUser">Signin</botton>
+                                    <button class="btn btn-primary" type = "button" v-on:click="createNewUser">Signin</button>
                                 </div>
                             </div>
                         </form>
@@ -81,7 +84,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <script src="main.js"></script>
+  <script src="js/sign.js"></script>
 
   <!-- Font Awesome -->
   <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>

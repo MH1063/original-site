@@ -53,36 +53,42 @@ new Vue({
       // event(=e)から画像データを取得する
       if ('Icon_img' === e.target.name){
         let icon_image = e.target.files[0];
-        this.createImage(icon_image);
+        console.log(icon_image);
+        this.createImage1(icon_image);
         
       }else if('Like_team_img' === e.target.name){
         let like_team_image = e.target.files[0];
-        this.createImage(like_team_image);
+        this.createImage2(like_team_image);
         
       }else{
         let like_player_image = e.target.files[0];
-        this.crateImage(like_player_image);
+        this.crateImage3(like_player_image);
       }
     },
-    createImage: function(icon_image, like_team_image, like_player_image) {
+    createImage1: function(file) {
       var reader = new FileReader();
-      if(icon_image){
-        reader.readAsDataURL(icon_image);
-        reader.onload = () => {
-          this.user.icon_img = reader.result;
-        };
-      }else if(like_team_image){
-        reader.readAsDataURL(like_team_image);
-        reader.onload = () => {
-          this.user.like_team_img = reader.result;
-        };
-      }else{
-        reader.readAsDataURL(like_player_image);
-        reader.onload = () => {
-          this.user.like_pleyer_img = reader.result;
-        };
+      reader.onload = (e) => {
+        console.log(e.target.result);
+        this.user.icon_img = e.target.result;
       };
+      reader.readAsDataURL(file);
     },
-  }
+    createImage2: function(file) {
+      var reader = new FileReader();
+      reader.onload = (e) => {
+        console.log(e.target.result);
+        this.user.icon_img = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    createImage3: function(file) {
+      var reader = new FileReader();
+      reader.onload = (e) => {
+        console.log(e.target.result);
+        this.user.icon_img = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+  },
 });
 

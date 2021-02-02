@@ -13,7 +13,7 @@ new Vue({
         })
         .then(function (response) {
           console.log(response);
-          sessionStorage.setItem('uerId', 'respone.data.user.id');
+          sessionStorage.setItem("userId", response.data.user.id);
           window.location.href = 'https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/_static/original/nba_frond/toppage_afterlogin.html';
         })
         .catch(function (error) {

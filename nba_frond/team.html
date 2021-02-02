@@ -11,12 +11,15 @@
     <link rel="stylesheet" href="css/main.css">
 
     <link rel="stylesheet" href="css/team.css">
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
     <div id="app">
-        <div id="backimg" class="main-img">
+        <div id="backimg" class="main-img" :style="{ backgroundImage: `url(${team.arena_img.url})`}">
             <header class="page-header wrapper">
                 <h1 class="logo">NBA</h1>
                 <nav>
@@ -33,7 +36,7 @@
         <div id="back-color">
             <ul class="primary-nav">
                 <li>カンファレンス:{{team.conference}}</li>
-                <li>ディビジョン:{team.division}}</li>
+                <li>ディビジョン:{{team.division}}</li>
                 <li>創設:{{team.founded}}</li>
                 <li>本拠地:{{team.base}}</li>
                 <li>優勝歴:{{team.championship}}</li>
@@ -168,16 +171,16 @@
             <!--ここに投稿機能-->
             <form class="form-submit">
                 <div class = "form-group submit">
-                    <input type="text" class="form-control" placeholder="Type a message" v-model="content">
+                    <input type="text" class="form-control" placeholder="Type a message" v-model="Content">
                 </div>
                 <div class="text-right">
-                    <botton class="btn btn-primary" type = "submit" v-on:click="chatcreate">Submit</botton>
+                    <button class="btn btn-primary" type = "submit" v-on:click="chatcreate">Submit</button>
                 </div>
             </form>
             <!--ここにチャット一覧-->
             <div class="commentlist">
                 <ul class="commentlist-parent">
-                    <li v-for="chat in chats" :key="chat.id" class="commentlist-child">
+                    <li v-for="(chat, index) in chats" :key="index" class="commentlist-child">
                         <div class="comment">
                             <div class="commet-header">
                                 <div class="commet-header-contributor">
@@ -187,7 +190,7 @@
                                             <span class="image-bg" 
                                                   style="background-size: cover;
                                                   background-position: center center;
-                                                  background-image:url(chat.user.icon_img)">
+                                                  background-image:url(chat.user.icon_img.url)">
                                             </span>
                                         </div>
                                     </div>
@@ -203,7 +206,7 @@
                                 <p class="comment-body-text">
                                     {{chat.content}}
                                 </p>
-                                <favorite-botton v-bind:user_id="this.user.id" v-bind:chat="chat"></favorite-botton>
+                                <!--<favorite-botton v-bind:user_id="this.user.id" v-bind:chat="chat"></favorite-botton>-->
                             </div>
                         </div>
                     </li>
@@ -230,7 +233,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <script src="main.js"></script>
+  <script src="js/team.js"></script>
 
   <!-- Font Awesome -->
   <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>

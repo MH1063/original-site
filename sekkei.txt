@@ -29,12 +29,12 @@
 　　ナビバー機能bootstorp(ナビバー)　○　余裕があったら、レスポンシブとeast,westを実装する。
 　　
 　　Vue
-　　login.js ○
-　　sign.js　○
+　　login.js ○ ○
+　　sign.js　○　○
 　　team.js　○
-　　topapge_afterlogin.js　○ 出来てはいるが。team.idを使って改善できるはず。templateを使って、配列を回数ごとに条件分岐して、team.idを所得する。
+　　topapge_afterlogin.js　○ ○出来てはいるが。team.idを使って改善できるはず。templateを使って、配列を回数ごとに条件分岐して、team.idを所得する。
 　　user.js ○　○
-　　user_edit.js ○　
+　　user_edit.js ○　△　画像の方ができていない
 　　user_other.js　○　teamからのuser情報（特にuserid）を所得して、データを受け渡しをおこなわなければならない
 　　
 　　デザイン
@@ -220,3 +220,5 @@ favoirtes
  curl  -H "Accept: application/json" -X PUT  http://localhost:8080/users/2 -F 'user[icon_img]=@public/melo.jpg'
  
  curl  -H "Accept: application/json" -X PUT  http://localhost:8080/users/2 -F 'user[icon_img]=null'
+ 
+ curl  -H "Accept: application/json" -X PUT  http://localhost:8080/teams/1 -F 'team[player5_img]=@public/img/1Nuggets/Millsap.jpg'

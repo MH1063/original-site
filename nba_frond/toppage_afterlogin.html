@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="css/toppage_afterlogin.css">
     
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     
     <!-- jQuery -->
@@ -32,18 +34,18 @@ $(document).ready(function(){
 <body>
     <div id="app">
         <div id="backimg" class="main-img">
-            <headder class="page-header wrapper">
+            <header class="page-header wrapper">
                 <h1 class="logo">NBA</h1>
                 <nav>
                     <ul class="main-nav">
                         <li><a href="#">west</a></li>
                         <li><a href="#">east</a></li>
-                        <li><a href="#">Mypage</a></li>
+                        <li><a href="user.html">Mypage</a></li>
                         <li><a href="#" v-on:click="logout">logoout</a></li>
                         <li><a href="#" v-on:click="destroyUser">retire</a></li>
                     </ul>
                 </nav>
-            </headder>
+            </header>
             <p class="location white">Enjoy<br>NBA community</p>
         </div>
         <div id="back-color">
@@ -157,7 +159,7 @@ $(document).ready(function(){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <script src="main.js"></script>
+    <script src="js/toppage_afterlogin.js"></script>
 
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
