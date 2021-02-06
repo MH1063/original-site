@@ -63,7 +63,7 @@ body{
 }
 
 .self section{
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 
 .self p{
@@ -87,7 +87,7 @@ body{
     margin-top: 2rem;
 }
 
-.left img{
+.left div img{
     margin-top: 2rem;
 }
 .right {
@@ -100,7 +100,7 @@ body{
     margin-top: 2rem;
 }
 
-.right img{
+.right div img{
     margin-top: 2rem;
 }
 

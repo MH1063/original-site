@@ -22,7 +22,7 @@ new Vue({
       
       axios
         .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users/${value[1]}`)
-        .then(function (response){
+        .then(response => {
           this.user = response.data.user;
         })
         .catch(error => {
@@ -32,8 +32,12 @@ new Vue({
         
       axios
         .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/users/${id}`)
-        .then(function (response){
-          var arr = response.data.followings.user.id;/*jsonのネストが的確にできているか分からないから、起動する時に確認する*/
+        .then(response => {
+          console.log(response);
+          const arr = response.data.followings.map(function(user){
+            return user.id;
+          });
+          console.log(arr);
           if( arr.includes(this.user.id)){
             this.activefollow = 'true';
           }else{
@@ -45,15 +49,15 @@ new Vue({
       window.location.href = 'https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/_static/original/nba_frond/toppage.html';
     }
   },
-  method: {
+  methods: {
     follow: function(){
       axios
-        .post('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/relationship/create', {
+        .post('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/relationships/create', {
           follow_id: this.user.id 
         })
         .then(function (response) {
           console.log(response);
-          window.location.href = 'https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/_static/original/nba_frond/user_other.html';
+          location.reload();
         })
         .catch(function (error) {
           alert('フォローできませんでした。');
@@ -63,13 +67,13 @@ new Vue({
     },
     unfollow: function(){
       axios
-        .delete('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/relationship/destroy', {
+        .delete('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/relationships/destroy', {
           /*follow_id: this.user.id ここにteamページからアクセスしたuserの情報が乗るようにする。また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない。*/
           data: {follow_id: this.user.id}
         })
         .then(function (response) {
           console.log(response);
-          window.location.href = 'https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/_static/original/nba_frond/user_other.html';
+          location.reload();
         })
         .catch(function (error) {
           alert('アンフォローできませんでした');

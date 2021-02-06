@@ -20,26 +20,24 @@
 <body>
     <div id="app">
         <div id="backimg">
-            <headder class="page-header wrapper">
+            <header class="page-header wrapper">
                 <h1 class="logo">NBA</h1>
                 <nav>
                     <ul class="main-nav">
-                        <li><a href="#"><i class="far fa-star"></i><span>0</span></a></li>
-                        <li><a href="#">follow<span>0</span></a></li>
-                        <li><a href="#">folloer<span>0</span></a></li>
+                        <li><a href="#"><i class="far fa-star"></i><span>{{this.count_favoritings}}</span></a></li>
+                        <li><a href="#">follow<span>{{this.count_followings}}</span></a></li>
+                        <li><a href="#">folloer<span>{{this.count_followers}}</span></a></li>
                         <li><a href="user_edit.html">Edit</a></li>
-                        <li><a href="topapge_afterlogin.html">Top</a></li>
+                        <li><a href="toppage_afterlogin.html">Top</a></li>
                     </ul>
                 </nav>
-            </headder>
+            </header>
             <div>
                 <div class="self">
                     <h1>{{user.name}}</h1>
-                    <img
-                        v-bind:src="user.icon_img"
-                        width="150"
-                        height="150"
-                    >
+                    <div v-if="user.icon_img">
+                        <img v-bind:src="user.icon_img.url">
+                    </div>
                     <p>{{user.self}}</p>
                 </div>
             </div>
@@ -48,20 +46,16 @@
             <section class="left">
                 <p>favorite team</p>
                 <p>{{user.like_team}}</p>
-                <img
-                    v-bind:src="user.lile_team_img"
-                    width="150"
-                    height="150"
-                >
+                <div v-if="user.like_team_img">
+                    <img v-bind:src="user.like_team_img.url">
+                </div>
             </section>
             <section class="right">
                 <p>favorite player</p>
                 <p>{{user.like_player}}</p>
-                <img 
-                    v-bind="user.like_player_img"
-                    width="150"
-                    height="150"
-                >
+                <div v-if="user.like_player_img">
+                    <img v-bind:src="user.like_player_img.url">
+                </div>
             </section>
         </div>
         <footer>

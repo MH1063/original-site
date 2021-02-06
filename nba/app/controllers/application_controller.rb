@@ -19,5 +19,6 @@ class ApplicationController < ActionController::API
     
     @followings = user.followings#js側で、follow,unfollowの仕分けをするために使う。
     @favoritings = user.favoritings#js側で、favorite,unfavoriteの仕分けをするために使う。
+    
   end
 end

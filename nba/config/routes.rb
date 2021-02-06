@@ -7,11 +7,13 @@ Rails.application.routes.draw do
     delete 'relationships/destroy'
   
     get 'chats/index'
+    get 'chats/:id', to: 'chats#show'
     post 'chats/create'
     delete 'chats/destroy/:id', to: 'chats#destroy'
     
     get 'teams/index'
     get 'teams/:id', to: 'teams#show'
+    post 'teams/create'
     put 'teams/:id', to: 'teams#update'
     
   
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
         get :followings
         get :followers
         get :likes
+        put :image_update
       end
     end
 end

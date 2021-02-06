@@ -8,11 +8,18 @@ class ChatsController < ApplicationController
     render :formats => :json
     #render json: @chats
   end
+  
+  def show
+    @chat = Chat.find(params[:id])
+    
+    render :formats => :json
+  end
 
   def create
     @chat = current_user.chats.build(chat_params)
     if @chat.save
-      render :formats => :json
+      #render :formats => :json
+      render json: {message: 'chat in success'}
       #render json: @chat, status: :created 
     else
       render json: @chat.errors, status: :unprocessable_entity

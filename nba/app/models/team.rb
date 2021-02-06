@@ -12,7 +12,7 @@ class Team < ApplicationRecord
   validates :player4, length: { maximum: 50 }, uniqueness: true
   validates :player5, length: { maximum: 50 }, uniqueness: true
   
-  has_many :chats
+  has_many :chats, dependent: :destroy
 
   mount_uploader :logo_img, LogoUploader
   mount_uploader :arena_img, ArenaUploader
