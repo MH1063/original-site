@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     post 'relationships/create'
     delete 'relationships/destroy'
   
-    get 'chats/index'
+    get 'chats/index/:id', to: 'chats#index'
     get 'chats/:id', to: 'chats#show'
     post 'chats/create'
     delete 'chats/destroy/:id', to: 'chats#destroy'

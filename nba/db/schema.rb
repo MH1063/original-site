@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_07_071807) do
+ActiveRecord::Schema.define(version: 2021_02_10_010521) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -63,6 +63,26 @@ ActiveRecord::Schema.define(version: 2020_11_07_071807) do
     t.string "player5_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "player1_hw"
+    t.string "player1_birth"
+    t.string "player1_start"
+    t.string "player1_pro"
+    t.string "player2_hw"
+    t.string "player2_birth"
+    t.string "player2_start"
+    t.string "player2_pro"
+    t.string "player3_hw"
+    t.string "player3_birth"
+    t.string "player3_start"
+    t.string "player3_pro"
+    t.string "player4_hw"
+    t.string "player4_birth"
+    t.string "player4_start"
+    t.string "player4_pro"
+    t.string "player5_hw"
+    t.string "player5_birth"
+    t.string "player5_start"
+    t.string "player5_pro"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

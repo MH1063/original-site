@@ -5,7 +5,7 @@ class Team < ApplicationRecord
   validates :founded, length: { maximum: 50 }
   validates :base, length: { maximum: 50 }
   validates :championship, length: { maximum: 50 }
-  validates :arena, length: { maximum: 50 }, uniqueness: true
+  validates :arena, length: { maximum: 50 }
   validates :player1, length: { maximum: 50 }, uniqueness: true
   validates :player2, length: { maximum: 50 }, uniqueness: true
   validates :player3, length: { maximum: 50 }, uniqueness: true

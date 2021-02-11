@@ -21,13 +21,17 @@ new Vue({
       Content: '',
       Team_id: '',
       team_status: '',
+      teamImage: [],
+      imageArena: '',
+      image1: '',
+      image2: '',
+      image3: '',
+      image4: '',
+      image5: '',
       mychat: false,
       errored: false
     };
   },
-  /*components: {
-    'favorite-button': favoriteButton,
-  },*/
   mounted() {
     if(sessionStorage.getItem("userId")){
       
@@ -38,22 +42,24 @@ new Vue({
       
       this.team_status = value[1];
       
-      /*googleapiは、var valueによって条件分岐して、チームごとのマップを表示する。
-      　rakutennapiも同じように条件分岐して、fecth関数を利用して出力する。*/
-      /*.get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/teams/${value[1]}`)*/
-      
       axios
         .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/teams/${value[1]}`)
         .then(response => {
           console.log(response.data);
           this.team = response.data;
+          this.imageArena = response.data.arena_img.url;
+          this.image1 = response.data.player1_img.url;
+          this.image2 = response.data.player2_img.url;
+          this.image3 = response.data.player3_img.url;
+          this.image4 = response.data.player4_img.url;
+          this.image5 = response.data.player5_img.url;
         })
         .catch(error => {
           console.log(error);
           this.errored = true;
         });
       axios
-        .get('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/index')
+        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/index/${value[1]}`)
         .then(response => {
           console.log(response.data);
           this.chats = response.data.chats;
@@ -80,7 +86,7 @@ new Vue({
   methods: {
     getchats: function(){
       axios
-        .get('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/index')
+        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/index/${this.team_status}`)
         .then(response => {
           this.chats = response.data.chats})
         .catch(error => {
@@ -114,36 +120,6 @@ new Vue({
         })
         .catch(error => {
           alert('削除できませんでした。');
-          console.log(error);
-          return false;
-        });
-    },
-    favorite: function(value){
-      axios
-        .post('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/favorites/create', {
-          chat_id: value /*お気に入りにするchatは、html側から繰り返しの配列からのchatを所得して、そのchatのidを使う。*/
-        })
-        .then(response => {
-          console.log(response);
-          this.getchats();
-        })
-        .catch(error => {
-          alert('お気にりにできませんでした。');
-          console.log(error);
-          return false;
-        });
-    },
-    unfavorite: function(value){
-      axios
-        .delete('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/favorites/destroy', {
-          data: {chat_id: value}/*また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない*/
-        })
-        .then(response => {
-          console.log(response);
-          this.getchats();
-        })
-        .catch(error => {
-          alert('お気に入りを解除できませんでした。');
           console.log(error);
           return false;
         });
@@ -309,6 +285,123 @@ Vue.component('favorite-button', {
         });
     }
   },
+  template:/*`
+    <div class="icon-mark" v-if="favoritecompare">
+        <a href="#" v-on:click="favorite(chat.id)"><i class="far fa-star icon"></i></a>
+    </div>
+    <div class="icon-mark" v-else>
+        <a href="#" v-on:click="unfavorite(chat.id)"><i class="fas fa-star"></i></a>
+    </div>
+    `,*/
+    `
+    <div v-if="userId !== Chat.user_id">
+        <div class="icon-mark" v-if="favoritecompare">
+            <button type = "botton" class="btn btn-primary btn-sm" v-on:click="favorite(chat.id)">favorite</button>
+        </div>
+        <div class="icon-mark" v-else>
+            <button type = "botton" class="btn btn-danger btn-sm" v-on:click="unfavorite(chat.id)">unfavorite</button>
+        </div>
+    </div>
+    `,
+  /*`
+    <div class="icon-mark" v-if="favoritecompare">
+        <span v-on:click="favorite(chat.id)"><i class="far fa-star icon"></i></span>
+    </div>
+    <div class="icon-mark" v-else>
+        <span v-on:click="unfavorite(chat.id)"><i class="fas fa-star"></i></span>
+    </div>
+    `,*/
+});
+
+
+/*Vue.component('favorite-button', {
+  props:{
+    user_id:{
+      type: Number,
+      required: true,
+    },
+    chat:{
+      type: Object,
+      required: true,
+    },
+  },
+  data() {
+    return{
+      userId: this.user_id,
+      Chat: this.chat,
+      favoritecompare: '',
+    };
+  },
+  mounted(){
+    console.log(this.Chat);
+    const userId = this.userId;
+    const arr = this.Chat.favoiriter.map(function(user){
+      return user.id;
+    });
+    return this.chatsort(userId, arr);
+  },
+  methods:{
+    chatsort: function(userId, arr){
+      console.log(userId);
+      console.log(arr);
+      if( arr.includes(userId)){
+        this.favoritecompare = false;
+      }else{
+        this.favoritecompare = true;
+      }
+    },
+    getreload: function(){
+      console.log(this.Chat);
+      const userId = this.userId;
+      const arr = this.Chat.favoiriter.map(function(user){
+        return user.id;
+      });
+      return this.chatsort(userId, arr);
+    },
+    favorite: function(value){
+      axios
+        .post('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/favorites/create', {
+          chat_id: value 
+        })
+        .then(response => {
+          console.log(response);
+          this.getchat();
+        })
+        .catch(error => {
+          alert('お気にりにできませんでした。');
+          console.log(error);
+          return false;
+        });
+    },
+    unfavorite: function(value){
+      axios
+        .delete('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/favorites/destroy', {
+          data: {chat_id: value} 
+        })
+        .then(response => {
+          console.log(response);
+          this.getchat();
+        })
+        .catch(error => {
+          alert('お気に入りを解除できませんでした。');
+          console.log(error);
+          return false;
+        });
+    },
+    getchat: function(){
+      var id = this.chat.id;
+      axios
+        .get(`https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/chats/${id}`)
+        .then(response => {
+          console.log(response.data);
+          this.Chat = response.data;
+          this.getreload();
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  },
   template:`
     <div class="icon-mark" v-if="favoritecompare">
         <a href="#" v-on:click="favorite(chat.id)"><i class="far fa-star icon"></i></a>
@@ -317,4 +410,4 @@ Vue.component('favorite-button', {
         <a href="#" v-on:click="unfavorite(chat.id)"><i class="fas fa-star"></i></a>
     </div>
     `,
-});
+});*/

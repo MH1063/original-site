@@ -3,8 +3,8 @@ class ChatsController < ApplicationController
   before_action :correct_user, only: [:destroy]
   
   def index
-    @chats = Chat.all.order(team_id: :desc)
-    
+    @chats = Chat.where(team_id: params[:id])
+    #@chats = Chat.all.order(team_id: :desc)
     render :formats => :json
     #render json: @chats
   end

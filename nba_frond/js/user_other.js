@@ -43,6 +43,10 @@ new Vue({
           }else{
             this.activefollow = 'false';
           }
+        })
+        .catch(error => {
+          console.log(error);
+          this.errored = true;
         });
         
     }else{
@@ -68,7 +72,7 @@ new Vue({
     unfollow: function(){
       axios
         .delete('https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com/relationships/destroy', {
-          /*follow_id: this.user.id ここにteamページからアクセスしたuserの情報が乗るようにする。また、deleteの場合は、ワンチャン、paramsを使った方法にしないと出来ないかもしれない。*/
+          /*follow_id: this.user.id ここにteamページからアクセスしたuserの情報が乗るようにする。また、deleteの場合は、paramsを使った方法にしないと出来ないかもしれない。*/
           data: {follow_id: this.user.id}
         })
         .then(function (response) {
