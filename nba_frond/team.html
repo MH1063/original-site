@@ -26,8 +26,8 @@
                     <ul class="main-nav">
                         <li><a href="#">west</a></li>
                         <li><a href="#">east</a></li>
-                        <li><a href="user.html">Mypage</a></li>
-                        <li><a href="toppage_afterlogin.html">Top</a></li>
+                        <li><a href="user">Mypage</a></li>
+                        <li><a href="toppage_afterlogin">Top</a></li>
                     </ul>
                 </nav>
             </header>
@@ -148,7 +148,7 @@
                                         <a href="#" v-on:click="userget(chat.user.user_id)">{{chat.user.name}}</a>
                                     </div>
                                     <div v-if="user.id === chat.user_id" class="delete">
-                                        <botton class="btn btn-danger" v-on:click="chatdestroy(chat.id)">DELETE</botton>
+                                        <button class="btn btn-danger" v-on:click="chatdestroy(chat.id)">DELETE</button>
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +189,7 @@
     
     <script src=js/api.js></script>
     
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=APIkey"></script>
+    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=APIkey"></script>-->
     
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
