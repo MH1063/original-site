@@ -59,3 +59,5 @@ gem 'pry-byebug', group: :development
 gem 'dotenv-rails'
 
 gem 'seed_dump'
+
+gem 'rails_12factor', group: :production
