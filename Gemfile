@@ -57,3 +57,5 @@ gem 'rack-cors'
 gem 'pry-byebug', group: :development
 
 gem 'dotenv-rails'
+
+gem 'seed_dump'
