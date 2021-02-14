@@ -16,11 +16,11 @@
 # end
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '"http://localhost:8080'
+    origins 'http://localhost:8080' ,  'fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com' , 'nba-view24.herokuapp.com'
 
     resource '*',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
-      redentials: true
+      credentials: true
   end
 end
