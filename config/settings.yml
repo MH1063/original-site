@@ -1,2 +1,3 @@
 #url: 'http://localhost:8080'
-url: 'https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com'
+#url: 'https://fae945d999374a79b64f384ea8675d41.vfs.cloud9.us-east-1.amazonaws.com'
+url: 'https://nba-api24.herokuapp.com'
