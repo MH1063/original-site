@@ -72,6 +72,10 @@ class UsersController < ApplicationController
   def log_out
     render json: {message: "logout in success"}
   end
+  
+  def me
+    render json: current_user
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

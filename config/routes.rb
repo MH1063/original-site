@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       collection do
       post :log_in
       delete :log_out
+      get :me
       end
     end
 end
