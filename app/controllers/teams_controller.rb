@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :update]
+  skip_before_action :authenticate!, only: [ :index, :show ]
   
   def index
     @teams = Team.all
