@@ -1,7 +1,7 @@
 class ChatsController < ApplicationController
   #before_action :require_user_logged_in おそらくフロンド側で実行可能なので、必要無い。
   before_action :correct_user, only: [:destroy]
-  skip_before_action :authenticate!, only: [ :index, :show, ]
+  skip_before_action :authenticate!, only: [ :index, :show, :create, :destroy]
   
   def index
     @chats = Chat.where(team_id: params[:id])
