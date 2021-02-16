@@ -22,10 +22,11 @@ Rails.application.routes.draw do
   
     resources :users do
       member do
-        get :followings
-        get :followers
-        get :likes
         put :image_update
+      end
+      collection do
+      post :log_in
+      delete :log_out
       end
     end
 end

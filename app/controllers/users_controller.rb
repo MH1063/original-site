@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy, :image_update, :followings, :followers]
+  before_action :set_user, only: [:show, :update, :destroy, :image_update]
+  skip_before_action :authenticate!, only: [ :create, :log_in ]
 
   # GET /users
   def index
@@ -16,13 +17,22 @@ class UsersController < ApplicationController
   end
 
   # POST /users
+  #def create
+    #@user = User.new(user_params)
+    #if @user.save
+      #session[:user_id] = @user.id
+      #render json: @user, status: :created, location: @user
+    #else
+      #render json: @user.errors, status: :unprocessable_entity
+    #end
+  #end
+  
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
-      render json: @user, status: :created, location: @user
+      render json: @user
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: { errors: @user.errors.full_messages }, status: 400
     end
   end
 
@@ -48,31 +58,19 @@ class UsersController < ApplicationController
     end
   end
   
-  def followings
-    @followings = @user.followings
-    counts(@user)
-    #render json: @followings
-    respond_to do |f|
-      f.json { render json: {user: @user, count_chats: @count_chats, count_followings: @count_followings, count_followers: @count_followers, count_favoritings: @count_favoritings }}
+  #api用のtoken認証
+  def log_in
+    @user = User.find_by(email: params[:email])
+
+    if @user && @user.authenticate(params[:password])
+      render json: @user
+    else
+      render json: { errors: ['ログインに失敗しました'] }, status: 401
     end
   end
   
-  def followers
-    @followers = @user.followers
-    counts(@user)
-    #render json: @followers
-    respond_to do |f|
-      f.json { render json: {user: @user, count_chats: @count_chats, count_followings: @count_followings, count_followers: @count_followers, count_favoritings: @count_favoritings }}
-    end
-  end
-  
-  def likes
-    @favoritings = @user.favoritings
-    counts(@user)
-    #render json: @favoritings 
-    respond_to do |f|
-      f.json { render json: {user: @user, count_chats: @count_chats, count_followings: @count_followings, count_followers: @count_followers, count_favoritings: @count_favoritings }}
-    end
+  def log_out
+    render json: {message: "logout in success"}
   end
 
   private
