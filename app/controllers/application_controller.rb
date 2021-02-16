@@ -17,7 +17,7 @@ class ApplicationController < ActionController::API
  end
 
   def current_user
-    @current_user ||= User.find_by(token: request.headers['Authorization'].split[1])
+    @current_user ||= User.find_by(token: request.headers['Authorization'].split[0])
   end
   
  
