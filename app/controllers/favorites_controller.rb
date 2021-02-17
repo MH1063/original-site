@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
   #end
   
   def destroy
-    current_user.unfavorite.(@chat)
+    current_user.unfavorite(@chat)
     render json: {message: 'unfavorite in success'}
   end
   
