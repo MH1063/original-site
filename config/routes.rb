@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     delete 'favorites/:id', to: 'favorites#destroy'
   
     post 'relationships/create'
-    delete 'relationships/destroy'
+    delete 'relationships/:id', to: 'relationships#destroy'
   
     get 'chats/index/:id', to: 'chats#index'
     get 'chats/:id', to: 'chats#show'
