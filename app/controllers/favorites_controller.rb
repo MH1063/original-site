@@ -5,9 +5,16 @@ class FavoritesController < ApplicationController
     render json: {message: 'favorite in success'}
   end
 
+  #def destroy
+    #chat = Chat.find(params[:data][:chat_id])
+   # current_user.unfavorite(chat)
+    #render json: {message: 'unfavorite in success'}
+  #end
+  
   def destroy
-    chat = Chat.find(params[:data][:chat_id])
-    current_user.unfavorite(chat)
+    chat = Chat.find(params[:id])
+    current_user.unfavorite.(chat)
     render json: {message: 'unfavorite in success'}
   end
+  
 end

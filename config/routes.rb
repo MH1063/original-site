@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
     post 'favorites/create'
-    delete 'favorites/destroy'
+    delete 'favorites/:id', to: 'favorites#destroy'
   
     post 'relationships/create'
     delete 'relationships/destroy'
