@@ -6,7 +6,7 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:follow_id])
+    user = User.find(params[:data][:follow_id])
     current_user.unfollow(user)
     render json: {message: 'unfollow in success'}
   end
