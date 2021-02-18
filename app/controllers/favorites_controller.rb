@@ -19,7 +19,6 @@ class FavoritesController < ApplicationController
   
   
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_chat
       @chat = Chat.find(params[:id])
     end

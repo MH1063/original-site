@@ -2,21 +2,17 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy, :image_update]
   skip_before_action :authenticate!, only: [ :index, :show, :create, :image_update, :log_in ]
 
-  # GET /users
   def index
     @users = User.all
 
     render json: @users
   end
 
-  # GET /users/1
   def show
     counts(@user)
-    #render json: @user
     render json: {user: @user, count_chats: @count_chats, count_followings: @count_followings, count_followers: @count_followers, count_favoritings: @count_favoritings, followings: @followings, favoritings: @favoritings}
   end
 
-  # POST /users
   #def create
     #@user = User.new(user_params)
     #if @user.save
@@ -35,8 +31,7 @@ class UsersController < ApplicationController
       render json: { errors: @user.errors.full_messages }, status: 400
     end
   end
-
-  # PATCH/PUT /users/1
+  
   def update
     if @user.update(user_params)
       render json: @user, location: @user
@@ -45,7 +40,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
   def destroy
     @user.destroy
   end
@@ -78,12 +72,11 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :self, :like_player, :like_team, :like_player_img, :like_team_img, :icon_img)
     end
