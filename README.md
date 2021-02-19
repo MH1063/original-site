@@ -2,7 +2,7 @@
  
 NBA-API AND Rails-API  
  
-NBA(アメリカプロバスケットボール)の選手情報、rails-APIの基本的な機能実装
+NBA(アメリカプロバスケットボール)の選手情報、rails-APIの基本的な機能を実装したwebAPI
 
 # Demo
  
@@ -31,7 +31,12 @@ NBA(アメリカプロバスケットボール)の選手情報、rails-APIの基
  
 # Comment
  
-今回の開発においては、APIならではの特徴を踏まえて開発しました。
+  注力した機能・点  
+  * curlコマンド, Insomniaを利用したAPIのデータの確認  
+  * gem'carrierwave','mini_magick'を使用した画像の保存機能  
+  * gem 'seed_dump'を使用した開発データを本番データへの移行  
+  * 中間テーブルを利用したそれぞれのModelの関係構築  
+  * jbuilderを使用したデータのjson化
 
 # TestAccount 
 
