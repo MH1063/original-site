@@ -1,24 +1,48 @@
-# README
+# Name（リポジトリ/プロジェクト）
+ 
+NBA-API AND Rails-API  
+ 
+NBA(アメリカプロバスケットボール)の選手情報、rails-APIの基本的な機能実装
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Demo
+ 
+[![Image from Gyazo](https://i.gyazo.com/0f6bb2a48fb4beaf26087d5de62bd876.jpg)](https://gyazo.com/0f6bb2a48fb4beaf26087d5de62bd876)
+ 
+# Function
+ 
+・ユーザーCRUD機能  
 
-Things you may want to cover:
+・token認証 
 
-* Ruby version
+・チャット GET POST DELETE機能 
+ 
+・follow, unfollow機能 
 
-* System dependencies
+・favorite, unfavorite機能 
 
-* Configuration
+・NBA選手情報のマスターデータベース化 
 
-* Database creation
+・画像  GET UPDATE機能 
+ 
+# Requirement
 
-* Database initialization
+* Ruby 2.5.3
+* Rails 5.2.4.4
+ 
+# Comment
+ 
+今回の開発においては、APIならではの特徴を踏まえて開発しました。
 
-* How to run the test suite
+# TestAccount 
 
-* Services (job queues, cache servers, search engines, etc.)
+・Email test30@gmail.com
 
-* Deployment instructions
+・password 5tgb6yhn
+ 
+# HarokuURL 
 
-* ...
+https://nba-api24.herokuapp.com 
+
+https://nba-view24.herokuapp.com 
+
+* APIの為、こちらの https://nba-view24.herokuapp.com からAPIにアクセスしている。
